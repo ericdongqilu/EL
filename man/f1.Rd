@@ -14,5 +14,6 @@ This function allows you to express your love of cats.
 }
 \examples{
 f1()
+
 }
 \keyword{cats}

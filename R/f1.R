@@ -6,10 +6,11 @@
 #' @export
 #' @examples
 #' f1()
+#'
+#' @import httr
 #' @import tidyverse
 #' @import dplyr
 #' @import jsonlite
-#' @import httr
 #' @import ggplot2
 #' @import stringr
 
