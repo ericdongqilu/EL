@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1563367093735.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "B996D250",
+    "lastKnownWriteTime" : 1563367462,
+    "last_content_update" : 1563367462938,
+    "path" : "~/Desktop/MyPackage/EL/R/f1.R",
+    "project_path" : "R/f1.R",
+    "properties" : {
+        "cursorPosition" : "17,30",
+        "scrollLine" : "12"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 9,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

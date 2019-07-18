@@ -7,13 +7,13 @@
     "folds" : "",
     "hash" : "0",
     "id" : "DFC8F0B9",
-    "lastKnownWriteTime" : 1563225119,
-    "last_content_update" : 1563225119001,
+    "lastKnownWriteTime" : 1563363508,
+    "last_content_update" : 1563363508092,
     "path" : "~/Desktop/MyPackage/EL/R/hello.R",
     "project_path" : "R/hello.R",
     "properties" : {
-        "cursorPosition" : "31,0",
-        "scrollLine" : "16"
+        "cursorPosition" : "14,3",
+        "scrollLine" : "0"
     },
     "read_only" : false,
     "read_only_alternatives" : [

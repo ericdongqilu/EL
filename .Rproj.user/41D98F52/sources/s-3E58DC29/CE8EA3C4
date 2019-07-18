@@ -1,0 +1,26 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1563362289909.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "CE8EA3C4",
+    "lastKnownWriteTime" : 1563367305,
+    "last_content_update" : 1563367305207,
+    "path" : "~/Desktop/MyPackage/EL/R/fet.r",
+    "project_path" : "R/fet.r",
+    "properties" : {
+        "cursorPosition" : "7,8",
+        "scrollLine" : "0",
+        "tempName" : "Untitled1"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 5,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
