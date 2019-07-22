@@ -2,6 +2,7 @@
 
 export(Ep.Header)
 export(Query.6)
+export(Query.7)
 export(cat_function)
 export(f1)
 export(fei)
