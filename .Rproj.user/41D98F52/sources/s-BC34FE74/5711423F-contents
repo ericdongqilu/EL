@@ -33,6 +33,7 @@ Query.6 <- function(...){
 #'
 
 
+
 Query.7 <- function(...){
   Dots <- list(...)
   #print(names(Dots))
@@ -45,8 +46,7 @@ Query.7 <- function(...){
   to          = Dots$chosenTo
 
   #
-#  EpQuery <-
-  list(count=count,
+  EpQuery <- list(count=count,
                   price=price,
                   granularity=granularity,
                   from=from,
@@ -54,15 +54,14 @@ Query.7 <- function(...){
     data.frame() %>%
     gather() %>%
     drop_na() %>%
-    rowwise() %>% print()
-#    mutate(parameter =
-#             paste(c(key,value),collapse = "=")) %>%
-#    select(parameter) %>%
-#    unlist() %>%
-#    paste(.,collapse = "&") %>%
-#    paste0("?",.)
-  # print(EpQuery)
-#  return(EpQuery)
-
+    rowwise() %>%
+    mutate(parameter =
+             paste(c(key,value),collapse = "=")) %>%
+    select(parameter) %>%
+    unlist() %>%
+    paste(.,collapse = "&") %>%
+    paste0("?",.)
+   print(EpQuery)
+  return(EpQuery)
 }
 
