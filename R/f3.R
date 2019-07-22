@@ -109,3 +109,45 @@ Query.32 <- function(...){
   #  print(EpQuery)
   return(EpQuery)
 }
+
+
+
+
+
+#' A Cat Function
+#'
+#' This function allows you to express your love of cats.
+#' @param ... Do you love cats? Defaults to TRUE.
+#' @keywords cats
+#' @export
+#' @examples
+#' Ep.Query()
+#'
+#'
+
+Ep.Query <- function(CEPScode,...) {
+
+  Dots <- list(...)
+  #  print(names(Dots))
+  #  chosensinceTransactionID <- Dots$chosensinceTransactionID
+
+  EpQuery <- switch(as.character(CEPScode),
+
+                    "6" = Query.6  (sinceTransactionID = chosensinceTransactionID),
+
+                    "7" = Query.7  (chosenCount        = chosenCount,
+                                    chosenPrice        = chosenPrice,
+                                    chosenGranularity  = chosenGranularity,
+                                    chosenFrom         = chosenFrom,
+                                    chosenTo           = chosenTo),
+
+                    "30" = Query.30(chosenID=chosenID),
+
+                    "32" = Query.32 (chosenInstrument  = chosenInstrument),
+
+                    c(("Error"),("Check Query"))#else
+  )
+  EpQuery
+}
+
+

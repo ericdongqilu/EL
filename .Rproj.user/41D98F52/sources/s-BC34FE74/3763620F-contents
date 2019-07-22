@@ -3,7 +3,7 @@ devtools::install_github("ericdongqilu/EL",force = TRUE)
 library(EL)
 
 
-Query.6()
+Query.6(chosensinceTransactionID="943")
 Query.7(chosenCount=1443,
         chosenPrice=4343,
         chosenGranularity=4334,
@@ -11,6 +11,24 @@ Query.7(chosenCount=1443,
         chosenTo="frejoe")
 
 Query.30(chosenID="Fe")
+
+Query.32(chosenInstrument="Fdde")
+
+#6
+chosensinceTransactionID <- 4393
+#7
+chosenCount <- 1443
+chosenPrice <- 4343
+chosenGranularity <- 4334
+chosenFrom <- "FRe"
+chosenTo <- "frejoe"
+#30
+chosenID <- 323
+
+#32
+chosenInstrument <- "freninfre"
+
+Ep.Query(CEPScode=32)
 
 Ep.Header("fref")
 f1()
