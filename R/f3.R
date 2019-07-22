@@ -29,7 +29,7 @@ Query.6 <- function(...){
 #' @export
 #' @examples
 #' Query.7 ()
-#' @import tidyr
+#'
 #'
 
 
@@ -61,7 +61,29 @@ Query.7 <- function(...){
     unlist() %>%
     paste(.,collapse = "&") %>%
     paste0("?",.)
-   print(EpQuery)
+ #  print(EpQuery)
   return(EpQuery)
 }
 
+
+#' A Cat Function
+#'
+#' This function allows you to express your love of cats.
+#' @param ... Do you love cats? Defaults to TRUE.
+#' @keywords cats
+#' @export
+#' @examples
+#' Query.30()
+#'
+#'
+
+
+Query.30 <- function(...){
+  Dots <- list(...)
+  #  print(names(Dots))
+  chosenID <- Dots$chosenID
+
+  EpQuery <-  paste0("?id=",chosenID)
+  #  print(EpQuery)
+  return(EpQuery)
+}
