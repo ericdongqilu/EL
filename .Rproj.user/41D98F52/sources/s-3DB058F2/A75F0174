@@ -5,15 +5,15 @@
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "70107820",
+    "hash" : "0",
     "id" : "A75F0174",
     "lastKnownWriteTime" : 1563789656,
     "last_content_update" : 1563789656643,
     "path" : "~/Desktop/MyPackage/EL/R/f2.R",
     "project_path" : "R/f2.R",
     "properties" : {
-        "cursorPosition" : "17,1",
-        "scrollLine" : "11",
+        "cursorPosition" : "19,0",
+        "scrollLine" : "12",
         "tempName" : "Untitled1"
     },
     "read_only" : false,

@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1563802001154.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "46A7CE09",
+    "lastKnownWriteTime" : 1556456780,
+    "last_content_update" : 1556456780,
+    "path" : "~/Desktop/Github/ALGO/ALGO/new2/RequestEP/query/query.R",
+    "project_path" : null,
+    "properties" : {
+        "cursorPosition" : "49,1",
+        "scrollLine" : "46"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 8,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

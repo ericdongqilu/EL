@@ -20,3 +20,36 @@ Query.6 <- function(...){
   return(EpQuery)
 }
 
+
+Query.7 <- function(...){
+  Dots <- list(...)
+  #print(names(Dots))
+
+  #
+  count       = Dots$chosenCount
+  price       = Dots$chosenPrice
+  granularity = Dots$chosenGranularity
+  from        = Dots$chosenFrom
+  to          = Dots$chosenTo
+
+  #
+  EpQuery <- list(count=count,
+                  price=price,
+                  granularity=granularity,
+                  from=from,
+                  to=to) %>%
+    data.frame() %>%
+    gather() %>%
+    drop_na() %>%
+    rowwise() %>%
+    mutate(parameter =
+             paste(c(key,value),collapse = "=")) %>%
+    select(parameter) %>%
+    unlist() %>%
+    paste(.,collapse = "&") %>%
+    paste0("?",.)
+  # print(EpQuery)
+  return(EpQuery)
+
+}
+
