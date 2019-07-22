@@ -87,3 +87,25 @@ Query.30 <- function(...){
   #  print(EpQuery)
   return(EpQuery)
 }
+
+
+#' A Cat Function
+#'
+#' This function allows you to express your love of cats.
+#' @param ... Do you love cats? Defaults to TRUE.
+#' @keywords cats
+#' @export
+#' @examples
+#' Query.32()
+#'
+#'
+
+Query.32 <- function(...){
+  Dots <- list(...)
+  #  print(names(Dots))
+  chosenInstrument<- Dots$chosenInstrument
+
+  EpQuery <- paste0("?instruments=",chosenInstrument)
+  #  print(EpQuery)
+  return(EpQuery)
+}
