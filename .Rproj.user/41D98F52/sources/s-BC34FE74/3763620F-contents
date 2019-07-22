@@ -1,4 +1,4 @@
-devtools::install_github("ericdongqilu/EL")
+devtools::install_github("ericdongqilu/EL",force = TRUE)
 
 library(EL)
 

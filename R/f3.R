@@ -21,6 +21,15 @@ Query.6 <- function(...){
 }
 
 
+#' A Cat Function
+#'
+#' This function allows you to express your love of cats.
+#' @param ... Do you love cats? Defaults to TRUE.
+#' @keywords cats
+#' @export
+#' @examples
+#' Query.7 ()
+#'
 Query.7 <- function(...){
   Dots <- list(...)
   #print(names(Dots))
