@@ -29,7 +29,10 @@ Query.6 <- function(...){
 #' @export
 #' @examples
 #' Query.7 ()
+#' @import tidyr
 #'
+
+
 Query.7 <- function(...){
   Dots <- list(...)
   #print(names(Dots))

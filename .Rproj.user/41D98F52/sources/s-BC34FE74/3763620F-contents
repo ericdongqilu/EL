@@ -12,3 +12,4 @@ Ep.Header("fref")
 f1()
 
 fxmath.df1
+drop_na()
