@@ -30,6 +30,14 @@ chosenInstrument <- "freninfre"
 
 Ep.Query(CEPScode=32)
 
+
+#
+Body.26(CEPScode=26,
+        Direction ="short",
+        ClosePositionunits = 4342)
+
+
+
 Ep.Header("fref")
 f1()
 
