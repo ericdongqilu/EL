@@ -1,25 +1,25 @@
 {
     "collab_server" : "",
     "contents" : "",
-    "created" : 1563362783943.000,
+    "created" : 1563789411568.000,
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
     "hash" : "0",
-    "id" : "E1CDDF85",
-    "lastKnownWriteTime" : 1563366770,
-    "last_content_update" : 1563366770875,
-    "path" : "~/Desktop/MyPackage/EL/DESCRIPTION",
-    "project_path" : "DESCRIPTION",
+    "id" : "652CB305",
+    "lastKnownWriteTime" : 1563789666,
+    "last_content_update" : 1563789666,
+    "path" : "~/Desktop/MyPackage/EL/NAMESPACE",
+    "project_path" : "NAMESPACE",
     "properties" : {
-        "cursorPosition" : "18,9",
+        "cursorPosition" : "8,0",
         "scrollLine" : "0"
     },
     "read_only" : false,
     "read_only_alternatives" : [
     ],
-    "relative_order" : 4,
+    "relative_order" : 7,
     "source_on_save" : false,
     "source_window" : "",
-    "type" : "dcf"
+    "type" : "r_namespace"
 }

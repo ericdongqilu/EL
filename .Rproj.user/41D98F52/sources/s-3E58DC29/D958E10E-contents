@@ -1,7 +1,0 @@
-
-
-devtools::install_github("ericdongqilu/EL")
-
-library(EL)
-
-Query.6()

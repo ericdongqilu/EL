@@ -1,6 +1,0 @@
-test_that("Test my foo function: ",
-          {
-            f1()
-            print(fxmath.df1)
-            print(fxmath.df2)
-          })

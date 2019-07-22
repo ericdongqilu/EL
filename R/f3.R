@@ -1,11 +1,11 @@
 #' A Cat Function
 #'
 #' This function allows you to express your love of cats.
-#' @param Url Do you love cats? Defaults to TRUE.
+#' @param ... Do you love cats? Defaults to TRUE.
 #' @keywords cats
 #' @export
 #' @examples
-#' f2()
+#' Query.6 ()
 #'
 
 #6

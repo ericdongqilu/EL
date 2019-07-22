@@ -1,21 +1,21 @@
 #' A Cat Function
 #'
 #' This function allows you to express your love of cats.
-#' @param Url Do you love cats? Defaults to TRUE.
+#' @param pToken Do you love cats? Defaults to TRUE.
 #' @keywords cats
 #' @export
 #' @examples
-#' f2()
+#'
 #'
 
 #Token for Practice
-TOKEN.Practice <- "77eef439a2943109e6634ca77f3e59da-63ead690379c4175b6d62f08f66b205e"
+#TOKEN.Practice <- "77eef439a2943109e6634ca77f3e59da-63ead690379c4175b6d62f08f66b205e"
 
 #Token for Realtrade
-TOKEN.Realtrade <- ""
+#TOKEN.Realtrade <- ""
 
 
-chosenTOKEN <- TOKEN.Practice
+#chosenTOKEN <- TOKEN.Practice
 
 
 # Ep.Header Function
