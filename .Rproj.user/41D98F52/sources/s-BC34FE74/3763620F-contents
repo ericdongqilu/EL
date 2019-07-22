@@ -1,5 +1,6 @@
 devtools::install_github("ericdongqilu/EL",force = TRUE)
 
+
 library(EL)
 
 
@@ -36,7 +37,9 @@ Body.26(CEPScode=26,
         Direction ="short",
         ClosePositionunits = 4342)
 
+Body.5(marginRate="fsnjoj")
 
+Ep.Body()
 
 Ep.Header("fref")
 f1()
