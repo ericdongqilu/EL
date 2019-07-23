@@ -47,7 +47,7 @@ chosenPostionFill="4"
 
 #
 Body.26(CEPScode=26,
-        chosenDirection ="short",
+        Direction ="short",
         ClosePositionunits = 4342)
 
 Body.5(marginRate="fsnjoj")
@@ -58,10 +58,25 @@ Body.10(Instrument="3",
         MarketType="f",
         PostionFill="4")
 
-Ep.Body(10)
+Ep.Body(26)
 
 Ep.Header("fref")
 f1()
 
 fxmath.df1
 drop_na()
+
+Environment.practice="333AAAA"
+Ep.info.ep.ready ="323232BBBB"
+Epscode=6
+chosensinceTransactionID="444"
+Ep.Query(6)
+Query.6(chosensinceTransactionID)
+
+Request.Step3.6(Epscode=6)
+Request.Step3.7(Epscode=7)
+Request.Step3.30(Epscode=30)
+
+Request.Step3.32(Epscode=32)
+
+Request.Step3.else(Epscode=4)

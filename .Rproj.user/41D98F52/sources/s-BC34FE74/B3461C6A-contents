@@ -1,0 +1,87 @@
+#Source
+source("packages/package.R")
+
+
+
+####
+Request.Step3.6<-function(...) {
+  Dots <- list(...)
+  print(names(Dots))
+  
+  ChosenEpscode <- Dots$Epscode
+  
+  #  
+  Url <- paste0(Environment.practice,
+                Ep.info.ep.ready,
+                Ep.Query(CEPScode = ChosenEpscode))
+  Url
+}
+
+#Request.Step3.6(Epscode=ChosenEpscode)
+
+####
+Request.Step3.7<-function(...) {
+  Dots <- list(...)
+  print(names(Dots))
+  
+  ChosenEpscode <- Dots$Epscode
+  
+  #  
+  Url <- paste0(Environment.practice,
+                Ep.info.ep.ready,
+                Ep.Query(CEPScode=ChosenEpscode))
+  
+  Url
+}
+
+#Request.Step3.7(Epscode=ChosenEpscode)
+
+####
+Request.Step3.30 <-function(...) {
+  Dots <- list(...)
+  print(names(Dots))
+  
+  ChosenEpscode <- Dots$Epscode
+  
+  #  
+  Url <- paste0(Environment.practice,Ep.info.ep.ready,
+                Ep.Query(CEPScode=ChosenEpscode))
+  
+  Url
+}
+
+#Request.Step3.30(Epscode=ChosenEpscode)
+
+
+####
+Request.Step3.32 <-function(...) {
+  Dots <- list(...)
+  print(names(Dots))
+  
+  ChosenEpscode <- Dots$Epscode
+  
+  #  
+  Url <- paste0(Environment.practice,Ep.info.ep.ready,
+                Ep.Query(CEPScode=ChosenEpscode))
+  Url
+}
+
+####
+Request.Step3.else <-function(...) {
+  Dots <- list(...)
+  print(names(Dots))
+  
+  ChosenEpscode <- Dots$Epscode
+  
+  #  
+  Url = paste0(Environment.practice,Ep.info.ep.ready)
+  
+  print(c(ChosenEpscode,Url))
+  
+  Url
+}
+
+#Request.Step3.else()
+
+#Request.Step3.32(Epscode=ChosenEpscode)
+

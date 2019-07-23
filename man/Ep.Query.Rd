@@ -7,7 +7,7 @@
 Ep.Query(CEPScode, ...)
 }
 \arguments{
-\item{...}{Do you love cats? Defaults to TRUE.}
+\item{CEPScode, ...}{Do you love cats? Defaults to TRUE.}
 }
 \description{
 This function allows you to express your love of cats.

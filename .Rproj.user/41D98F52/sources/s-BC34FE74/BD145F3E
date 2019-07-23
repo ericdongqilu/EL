@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1563891287699.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "BD145F3E",
+    "lastKnownWriteTime" : 1556510853,
+    "last_content_update" : 1556510853,
+    "path" : "~/Desktop/Github/ALGO/ALGO/new2/RequestEP/steps/step6/step6.R",
+    "project_path" : null,
+    "properties" : {
+        "cursorPosition" : "45,1",
+        "scrollLine" : "43"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 13,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

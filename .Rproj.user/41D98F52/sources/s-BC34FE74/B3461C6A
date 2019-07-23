@@ -1,20 +1,19 @@
 {
     "collab_server" : "",
     "contents" : "",
-    "created" : 1563885467264.000,
+    "created" : 1563890036439.000,
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
     "hash" : "0",
-    "id" : "21A8169A",
-    "lastKnownWriteTime" : 1563889420,
-    "last_content_update" : 1563889420535,
-    "path" : "~/Desktop/MyPackage/EL/R/f5.R",
-    "project_path" : "R/f5.R",
+    "id" : "B3461C6A",
+    "lastKnownWriteTime" : 1556510532,
+    "last_content_update" : 1556510532,
+    "path" : "~/Desktop/Github/ALGO/ALGO/new2/RequestEP/steps/step3/step3.R",
+    "project_path" : null,
     "properties" : {
-        "cursorPosition" : "4,17",
-        "scrollLine" : "0",
-        "tempName" : "Untitled2"
+        "cursorPosition" : "74,2",
+        "scrollLine" : "61"
     },
     "read_only" : false,
     "read_only_alternatives" : [
