@@ -5,7 +5,7 @@
 #' @keywords cats
 #' @export
 #' @examples
-#' Body.26()
+#'
 #'
 #'
 #'
@@ -72,7 +72,7 @@ Body.26 <- function(CEPScode,...) {
 #' @keywords cats
 #' @export
 #' @examples
-#' Body.5()
+#'
 #'
 #'
 #'
@@ -100,7 +100,7 @@ Body.5 <- function(...){
 #' @keywords cats
 #' @export
 #' @examples
-#' Body.10()
+#'
 #'
 #'
 #'
@@ -141,7 +141,7 @@ Body.10 <- function(...){
 #' @keywords cats
 #' @export
 #' @examples
-#' Ep.Body()
+#'
 #'
 #'
 #'

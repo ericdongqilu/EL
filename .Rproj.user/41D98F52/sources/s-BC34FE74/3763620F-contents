@@ -31,15 +31,34 @@ chosenInstrument <- "freninfre"
 
 Ep.Query(CEPScode=32)
 
+#Body.5
+chosenmarginRate="43"
+#Body.26
+chosenMarginRate="fsnjoj"
+chosenDirection ="short"
+chosenClosePositionunits = 434
+#Body.10
+
+chosenInstrument="3"
+chosenUnits="333"
+chosenTIF="mak"
+chosenMarketType="f"
+chosenPostionFill="4"
 
 #
 Body.26(CEPScode=26,
-        Direction ="short",
+        chosenDirection ="short",
         ClosePositionunits = 4342)
 
 Body.5(marginRate="fsnjoj")
 
-Ep.Body()
+Body.10(Instrument="3",
+        Units="333",
+        TIF="mak",
+        MarketType="f",
+        PostionFill="4")
+
+Ep.Body(10)
 
 Ep.Header("fref")
 f1()

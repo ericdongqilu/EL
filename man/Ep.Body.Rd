@@ -13,7 +13,7 @@ Ep.Body(CEPScode, ...)
 This function allows you to express your love of cats.
 }
 \examples{
-Ep.Body()
+
 
 
 

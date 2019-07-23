@@ -1,0 +1,12 @@
+#Source
+
+wd <- getwd()
+
+source(paste0(wd,"/","packages/package.R"))
+
+source(paste0(wd,"/","requestep/steps/step2/step2.R"))
+
+source(paste0(wd,"/","requestep/steps/step3/step3.R"))
+
+source(paste0(wd,"/","requestep/steps/step6/step6.R"))
+       

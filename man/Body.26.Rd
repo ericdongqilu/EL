@@ -13,7 +13,7 @@ Body.26(CEPScode, ...)
 This function allows you to express your love of cats.
 }
 \examples{
-Body.26()
+
 
 
 

@@ -13,7 +13,7 @@ Query.6(...)
 This function allows you to express your love of cats.
 }
 \examples{
-Query.6 ()
+
 
 }
 \keyword{cats}

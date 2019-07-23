@@ -13,7 +13,7 @@ Body.10(...)
 This function allows you to express your love of cats.
 }
 \examples{
-Body.10()
+
 
 
 

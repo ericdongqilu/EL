@@ -5,7 +5,7 @@
 #' @keywords cats
 #' @export
 #' @examples
-#' Query.6 ()
+#'
 #'
 
 #6
@@ -28,7 +28,7 @@ Query.6 <- function(...){
 #' @keywords cats
 #' @export
 #' @examples
-#' Query.7 ()
+#'
 #'
 #'
 
@@ -73,7 +73,7 @@ Query.7 <- function(...){
 #' @keywords cats
 #' @export
 #' @examples
-#' Query.30()
+#'
 #'
 #'
 
@@ -121,7 +121,7 @@ Query.32 <- function(...){
 #' @keywords cats
 #' @export
 #' @examples
-#' Ep.Query()
+#'
 #'
 #'
 
