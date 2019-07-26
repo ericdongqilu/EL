@@ -1,0 +1,6 @@
+#Environment.practice
+
+#practice
+Environment.practice = "https:/api-fxpractice.oanda.com"
+#realtrade
+Environment.realtrade = "https:/api-fxpractice.oanda.com"

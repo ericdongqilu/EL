@@ -1,0 +1,411 @@
+library(httr)
+library(dplyr)
+library(jsonlite)
+library(stringr)
+
+
+source("preenv.R")
+
+
+fxmath.df <- function(){
+
+URL <- "https://www1.oanda.com/tools/fxcalculators/fxmath.js"
+r <- GET(url = URL)
+
+
+r %>% 
+  content("text") -> Step1
+
+
+DfColNames <- function() {
+  VarNameList <- c()
+  for (i in 1:5) {
+    Step1 %>%
+      str_split(";\n",simplify = T)  %>% .[1,i] %>%
+      str_split("=new Array",simplify = T) %>% .[1,1] %>%
+      str_remove("var arr") -> VarNameList[i]
+  }
+  df.1.VarName <<- VarNameList[1:2]
+  df.2.VarName <<- VarNameList[3:5]
+}
+
+
+DfColNames() 
+
+
+bind_cols(
+  Step1 %>%
+  str_split(";\n",simplify = T)  %>% .[1,1] %>%
+  str_split("=new Array",simplify = T) %>% .[1,2] %>%
+  str_extract_all("[[:alnum:]]+[[:punct:]]+\\.*[[:alnum:]]*",simplify = T)  %>% 
+  .[1,] %>% 
+  as_tibble() %>% 
+  setNames(.,df.1.VarName[1])
+,
+  Step1 %>%
+  str_split(";\n",simplify = T)  %>% .[1,2] %>%
+  str_split("=new Array",simplify = T) %>% .[1,2] %>%
+  str_extract_all("[[:digit:]]+\\.*[[:digit:]]*",simplify = T) %>%
+  .[1,] %>% 
+  as_tibble() %>% 
+  setNames(.,df.1.VarName[2])
+) ->> fxmath.df1
+
+
+
+
+bind_cols(
+  Step1 %>%
+    str_split(";\n",simplify = T)  %>% .[1,3] %>%
+    str_split("=new Array",simplify = T) %>% .[1,2] %>%
+    str_extract_all("[[:alnum:]]+\\.*[[:alnum:]]*",simplify = T)   %>% 
+    .[1,] %>% 
+    as_tibble() %>% 
+    setNames(.,df.2.VarName[1])
+,
+  Step1 %>%
+    str_split(";\n",simplify = T)  %>% .[1,4] %>%
+    str_split("=new Array",simplify = T) %>% .[1,2] %>%
+    str_extract_all("[+-]?[[:digit:]]+\\.*[[:digit:]]*",simplify = T) %>%
+    .[1,] %>% 
+    as_tibble() %>% 
+    setNames(.,df.2.VarName[2])
+,
+  Step1 %>%
+    str_split(";\n",simplify = T)  %>% .[1,5] %>%
+    str_split("=new Array",simplify = T) %>% .[1,2] %>%
+    str_extract_all("[+-]?[[:digit:]]+\\.*[[:digit:]]*",simplify = T) %>%
+    .[1,] %>% 
+    as_tibble() %>% 
+    setNames(.,df.2.VarName[3]),
+) ->> fxmath.df2
+
+}
+
+fxmath.df()
+
+GetTradeName <- function( ) {  
+  
+SelectedEPScode = 4
+SelectedDataType ="Content.df.flat"
+
+Request.r.content(rResult = Request.EP(EPScode = SelectedEPScode, accountID=chosenaccountID),rDataType = SelectedDataType) 
+r$url
+
+Request.r(rEPScode = SelectedEPScode,DataType = SelectedDataType ) 
+rData  
+
+return(rData)
+
+}
+
+
+GetTradeName()$instruments$name %>% 
+  as_tibble() %>% 
+  separate(value,sep="_",c("Base","Quote"),remove = F) -> AAAdf
+
+AAAdf
+
+
+
+######################
+
+ccccc <- function(ii=1,
+                  PC = "AUD",
+                  uA = 100000,
+                  hH = 240
+                  ) {
+  
+PrimaryCurrency <- PC
+fxmath.df2 %>% filter(InterestCode %in% AAAdf[ii,"Base"]) -> BASE
+fxmath.df2 %>% filter(InterestCode %in% AAAdf[ii,"Quote"]) -> QUOTE
+
+
+cPairs <- AAAdf[ii,1] %>% separate(value,sep="_",c("Base","Quote"),remove = F)
+
+cPairs %>% mutate(BaseQuote            = paste0(Base,"/",Quote),
+                  QuoteBase            = paste0(Quote,"/",Base),
+                  
+                  BasePrimaryCurrency  = paste0(Base,"/",PrimaryCurrency),
+                  PrimaryCurrencyBase  = paste0(PrimaryCurrency,"/",Base),
+                  
+                  QuotePrimaryCurrency = paste0(Quote,"/",PrimaryCurrency),
+                  PrimaryCurrencyQuote = paste0(PrimaryCurrency,"/",Quote)
+                  ) -> aka
+
+aka
+
+aka %>% select(4:9) %>% gather(key,Pairs) -> bkb
+bkb
+
+fxmath.df1 %>% separate(Pairs,sep="/",c("Base","Quote"),remove = F) %>%
+  filter(Pairs %in% bkb$Pairs) -> ckc
+ckc
+
+bkb %>% full_join(.,ckc) -> dkd
+
+
+implist <- c("BaseQuote","BasePrimaryCurrency","QuotePrimaryCurrency")
+
+dkd  %>% 
+  mutate(imp=key%in%implist) %>% 
+  mutate(TF=!is.na(Rates)) %>%
+  mutate(ck = imp == T & TF==T) -> eke
+
+eke#
+
+aka
+
+eke %>% mutate(nr = ifelse(key=="BaseQuote" & TF==T,Rates,
+                           ifelse(
+                             key=="BaseQuote" & TF==F,1/as.numeric(Rates[2]),
+                             ifelse(
+                               key=="BasePrimaryCurrency" & TF==T,Rates,
+                               ifelse(
+                                 key=="BasePrimaryCurrency" & TF==F,1/as.numeric(Rates[4]),
+                                 ifelse(
+                                   key=="QuotePrimaryCurrency" & TF==T,Rates,
+                                   ifelse(
+                                     key=="QuotePrimaryCurrency" & TF==F,1/as.numeric(Rates[6]),
+                                     #else
+                                     NA
+                               ))))))) -> fkf
+
+
+fkf %>% mutate(nnr = ifelse(imp==T & is.na(nr)==T,1,nr)) -> fkff
+
+
+fkff %>% filter(imp==T) %>% select(key,Pairs,nnr) -> jkj
+jkj
+
+
+#BUY
+unitAmount = uA
+borrowRate = as.numeric(BASE$InterestBorrow)
+hoursHeld = hH
+
+customRateBase <- jkj %>% filter(key == "BasePrimaryCurrency") %>% .$nnr %>% as.numeric()
+
+FCB = unitAmount * (borrowRate/100) * (hoursHeld/8766) * customRateBase 
+FCB
+
+currencyRate = jkj %>% filter(key == "BaseQuote") %>% .$nnr %>% as.numeric() #CHFUSD
+
+ConvertedUnits = currencyRate*unitAmount
+
+lendRate = as.numeric(QUOTE$InterestLend)
+
+customRateQuote <- jkj %>% filter(key == "QuotePrimaryCurrency") %>% .$nnr %>% as.numeric()
+
+FCQ = ConvertedUnits * (lendRate/100)* (hoursHeld/8766) * customRateQuote
+
+BUYI = FCB-FCQ
+
+print(paste("currencyRate",currencyRate))
+print(paste("ConvertedUnits",ConvertedUnits))
+print(paste("FCB",FCB))
+
+print(paste("customRateQuote",customRateQuote))
+
+print(paste("FCQ",FCQ))
+print(paste("BUYI",BUYI))
+print(paste("borrowRate",borrowRate))
+print(paste("lendRate",lendRate))
+####
+
+#SELL
+currencyRate <- jkj %>% filter(key == "BaseQuote") %>% .$nnr %>% as.numeric()
+ #EURCHF
+
+
+ConvertedUnits = unitAmount*currencyRate
+borrowRate = as.numeric(QUOTE$InterestBorrow)
+
+customRateQuote <- jkj %>% filter(key == "QuotePrimaryCurrency") %>% .$nnr %>% as.numeric()
+
+FCQ = ConvertedUnits * (borrowRate/100)* (hoursHeld/8766) * customRateQuote
+FCQ
+
+lendRate = as.numeric(BASE$InterestLend)
+#hoursHeld = 8766
+
+customRateBase <- jkj %>% filter(key == "BasePrimaryCurrency") %>% .$nnr %>% as.numeric() #EUR/USD
+
+FCB = unitAmount * (lendRate/100) * (hoursHeld/8766) * customRateBase 
+FCB
+
+SELLI = FCQ-FCB
+
+print(FCQ)
+print(FCB)
+
+print(SELLI)
+print(borrowRate)
+print(lendRate)
+
+print(data.frame(
+  jkj$Pairs[1],BUYI,SELLI
+)
+)
+print(fkff)
+print(QUOTE)
+print(BASE)
+
+return(
+data.frame(
+jkj$Pairs[1],BUYI,SELLI
+)
+)
+
+}
+ccccc(ii=23)
+
+CreateDf <- function() {
+
+aaa <- data.frame() 
+aaa
+for (i in 1:124) {
+  aaa <- bind_rows(aaa,ccccc(ii=i))
+}
+
+
+aaa %>% as_tibble() %>% mutate(newbuy = as.character(BUYI),
+                               newsell = as.character(SELLI)) %>%
+  select(-c(BUYI,SELLI))-> aaa
+aaa.df <<- aaa  
+
+}
+
+CreateDf()
+
+
+
+
+
+######
+
+
+aaa.df
+ccccc(ii=1)
+
+View(aaa.df)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#aaaaaaaaa<-ccccc()
+#BASE
+#QUOTE
+
+
+
+
+
+
+#fxmath.df2[4,]
+#AAAdf[49,]
+
+AAAdf[49,'Base'] %in% fxmath.df2$InterestCode 
+for (i in 1:length(AAAdf$value)) {
+  print(
+    fxmath.df2 %>% filter(InterestCode %in% AAAdf[i,])
+  )
+}
+
+
+fxmath.df2 %>% filter(InterestCode %in% AAAdf[49,])
+
+Units= 1000000
+#For a long position:
+TIY=1*8766/8766
+#  Financing Charges on Base = units * ({BASE} Interest Rate %) * (Time in years) * ({BASE}/Primary Currency)
+fxmath.df2 %>% filter(InterestCode %in% AAAdf[1,"Base"]) -> BASE
+fxmath.df2 %>% filter(InterestCode %in% AAAdf[1,"Quote"]) -> QUOTE
+BASE 
+QUOTE
+
+#
+FCB = Units * (as.numeric(BASE$InterestBorrow)/100)*TIY*1*1.12469
+FCB
+# Financing Charges on Quote = (converted units) * ({QUOTE} Interest Rate %) * (Time in years) * ({QUOTE}/Primary Currency)
+ConvertedUnits = Units*1.00639
+
+FCQ = ConvertedUnits * (as.numeric(QUOTE$InterestLend)/100)*TIY*1*1.00639
+FCQ
+# Total Financing = Financing Charges on Base - Financing Charges on Quote
+FCB-FCQ
+
+
+#For a short position:
+
+#  Financing Charges on Quote = (converted units) * ({QUOTE} Interest Rate %) * (Time in years) * ({QUOTE}/Primary Currency)
+ConvertedUnits = Units*1.11761
+
+FCQ = ConvertedUnits * (as.numeric(QUOTE$InterestBorrow)/100)*TIY*1*1.00639
+FCQ
+# Financing Charges on Base = units * ({BASE} Interest Rate %) * (Time in years) * ({BASE}/Primary Currency)
+
+FCB = Units * (as.numeric(BASE$InterestLend)/100)*TIY*1*1.12469
+FCB
+# Total Interest = Financing Charges on Quote - Financing Charges on Base
+FCQ-FCB
+
+
+
+#).node.value=="BUY")
+#{a="(unitAmount                * (borrowRate/100) * (hoursHeld/8766) * customRateBase )- 
+#     ((unitAmount * currencyRate)  * (lendRate/100) * (hoursHeld/8766) * customRateQuote)"}
+
+unitAmount = 1000000
+borrowRate = as.numeric(BASE$InterestBorrow)
+hoursHeld = 8766
+
+customRateBase = 1.12469
+
+FCB = unitAmount * (borrowRate/100) * (hoursHeld/8766) * customRateBase 
+FCB
+
+currencyRate=1.00639 #CHFUSD
+ConvertedUnits = unitAmount*currencyRate
+lendRate = as.numeric(QUOTE$InterestLend)
+customRateQuote = 1.00639
+FCQ = ConvertedUnits * (lendRate/100)* (hoursHeld/8766) * customRateQuote
+FCQ
+
+FCB-FCQ
+
+#else{
+#a="((unitAmount*currencyRate) * (borrowRate/100) * (hoursHeld/8766) * customRateQuote)-
+#( unitAmount * (lendRate/100) * (hoursHeld/8766) * customRateBase)"}
+
+currencyRate = 1.11761 #EURCHF
+
+ConvertedUnits = unitAmount*currencyRate
+borrowRate = as.numeric(QUOTE$InterestBorrow)
+
+customRateQuote = 1.00639 #CHFUSD
+
+FCQ = ConvertedUnits * (borrowRate/100)* (hoursHeld/8766) * customRateQuote
+FCQ
+
+lendRate = as.numeric(BASE$InterestLend)
+hoursHeld = 8766
+
+customRateBase = 1.12469 #EUR/USD
+
+FCB = unitAmount * (lendRate/100) * (hoursHeld/8766) * customRateBase 
+FCB
+
+FCQ-FCB
+
+

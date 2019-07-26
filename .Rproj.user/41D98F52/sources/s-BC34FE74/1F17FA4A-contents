@@ -1,0 +1,153 @@
+#Source
+wd <- getwd()
+#source("packages/package.R")
+source(paste0(wd,"/","packages/package.R"))
+
+####################
+Request.EP <- function(...,
+                       flat=T,
+                       REturn="Ep.Status"){
+  Dots <- list(...)
+  print(names(Dots))
+  
+  ChosenEpscode <- Dots$EPScode
+  chosenaccountID <- Dots$accountID
+
+  print(c(ChosenEpscode,
+          chosenaccountID))
+  
+  #Step 1. Endpoint
+  Ep.info <<- df.Endpoints %>% filter(Epscode==ChosenEpscode)
+  
+  #Step 2. get Ep.ready
+  Ep.info.ep.ready <<- switch(Ep.info$Section,
+                             "Account"     = Request.Step2.Account     (accountID       = chosenaccountID),
+                             
+                             "Instrument"  = Request.Step2.Instrument  (Instrument      = chosenInstrument),
+                             
+                             "Order"       = Request.Step2.Order       (accountID       = chosenaccountID,
+                                                                        OrderSpecifier  = chosenOrderSpecifier),
+                             
+                             "Trade"       = Request.Step2.Trade       (accountID       = chosenaccountID,
+                                                                        TradeSpecifier  = chosenTradeSpecifier),
+                             
+                             "Position"    = Request.Step2.Position    (accountID       = chosenaccountID,
+                                                                        Instrument      = chosenInstrument),
+                             
+                             "Transaction" = Request.Step2.Transaction (accountID       = chosenaccountID,
+                                                                        TransactionID   = chosenTransactionID),
+                             
+                             "Pricing"     = Request.Step2.Pricing     (accountID       = chosenaccountID),
+                             
+                             c(("Error"),("Check reqep"))#else
+  )
+  Ep.info.ep.ready
+  print(Ep.info.ep.ready)
+  
+  #Step 3.Url
+  Url <<- switch(as.character(ChosenEpscode),
+         
+         "6" = Request.Step3.6(Epscode=ChosenEpscode),
+ 
+         "7" = Request.Step3.7(Epscode=ChosenEpscode),
+         
+         "30" = Request.Step3.30(Epscode=ChosenEpscode),
+         
+         "32" = Request.Step3.32(Epscode=ChosenEpscode),
+    
+         Request.Step3.else(Epscode=ChosenEpscode)#else
+  )
+
+  print(Url)
+  
+  #step 4. Header
+  Headers <<- Ep.Header(pToken=chosenTOKEN)
+  print(Headers)
+  
+  #step 5, Body
+  Body  <<- switch(as.character(ChosenEpscode),
+                   
+                   "5" = Ep.Body(CEPScode=ChosenEpscode),
+                   
+                   "10" = Ep.Body(CEPScode=ChosenEpscode),
+                   
+                   "26" = Ep.Body(CEPScode=ChosenEpscode),
+                   
+                   c(("Not with Body"),("Passed"))#else
+  )
+  
+  print(Body)
+  
+  #step 6. Method
+  #print(c("Headers",Headers))
+  #print(c("Url",Url))
+  #print(c("Body",Body))
+  
+  r <<- switch(Ep.info$Methods,
+               
+               "PATCH" = Request.Step6.PATCH(rUrl=Url, rHeaders = Headers, rBody = Body),
+               
+               "POST" = Request.Step6.POST(rUrl=Url, rHeaders = Headers, rBody = Body),
+               
+               "PUT" = Request.Step6.PUT(rUrl=Url, rHeaders = Headers, rBody = Body),
+               
+               "GET" = Request.Step6.GET(rUrl=Url, rHeaders = Headers, rBody = Body),
+               
+               c(("Error"),("Check Methods"))#else
+  )
+  
+  print(r)
+  r
+}
+
+#
+
+#Request.EP(EPScode = 10, accountID=chosenaccountID)
+
+Request.r.content <- function(...) {
+    Dots <- list(...)
+    #print(names(Dots))
+    
+    Result <- Dots$rResult
+    rFlat <- Dots$rFlat
+    dataType <- Dots$rDataType
+    # 
+    rData <<- switch(dataType,
+                     
+                     "Status" =  Result$status_code,
+                     
+                     "StatusAndUrl" =  data.frame(respStatus=Result$status_code, requestUrl=Result$url),
+                     
+                     "Content.Raw" =  Result,
+                    
+                     "Content.df" = content(Result),
+                     
+                     "Content.json" = toJSON(content(Result),pretty=T,auto_unbox = T),
+                     
+                     "Content.df.flat" = fromJSON(toJSON(content(Result),pretty=T,auto_unbox = T),flatten = T),
+                     
+                     c(("Error"),("choose rDataType"))#else
+    )
+    
+    rData
+}
+
+
+#Request.r.content(rResult = Request.EP(EPScode = 1, accountID=chosenaccountID),rDataType = "StatusAndUrl") 
+
+#
+Request.r <- function(...,
+                      rEPScode = 1,
+                      rchosenaccountID = chosenaccountID,
+                      DataType = "StatusAndUrl"){
+  Dots <- list(...)
+  #print(names(Dots))
+  Request.r.content.Result <<- Request.r.content(rResult = Request.EP(EPScode = rEPScode, accountID=rchosenaccountID),
+                                                 rDataType = DataType) 
+}
+
+
+#Request.r(rEPScode = 1, DataType = "Content.json")
+
+#Request.r.content.Result
+

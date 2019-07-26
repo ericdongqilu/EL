@@ -76,7 +76,9 @@ Query.6(chosensinceTransactionID)
 Request.Step3.6(Epscode=6)
 Request.Step3.7(Epscode=7)
 Request.Step3.30(Epscode=30)
-
 Request.Step3.32(Epscode=32)
-
 Request.Step3.else(Epscode=4)
+
+
+
+Request.Step6.GET(rUrl= "https://www1.oanda.com/tools/fxcalculators/fxmath.js")

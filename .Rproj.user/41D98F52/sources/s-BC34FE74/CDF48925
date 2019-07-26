@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1564031427819.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "CDF48925",
+    "lastKnownWriteTime" : 1563154683,
+    "last_content_update" : 1563154683,
+    "path" : "~/Desktop/Github/ALGO/ALGO/new2/preenv.R",
+    "project_path" : null,
+    "properties" : {
+        "cursorPosition" : "13,0",
+        "scrollLine" : "9"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 15,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

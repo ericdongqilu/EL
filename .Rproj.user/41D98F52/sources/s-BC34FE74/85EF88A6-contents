@@ -1,0 +1,94 @@
+#
+StartedVar <-function(...) {
+  Dots <- list(...)
+  ChosenVarslist <<- Dots %>% names() 
+  
+  StartedVars <<- Dots
+  
+  for (N in  ChosenVarslist) {
+  #  print(NewVar[as.character(N)])
+  #<<- unlist(NewVar["chosenaccountID"])
+    
+  }
+  
+} 
+
+#Start
+StartedVar(
+    #Usagestep2.switch
+    #Vars
+    chosenaccountID          = "101-011-1901365-013",
+    chosenInstrument         = "EUR_JPY", 
+    chosenOrderSpecifier     = 481,
+    chosenTradeSpecifier     = 75,
+    chosenTransactionID      = 249,
+    
+    #Body.5() 
+    #Vars
+    chosenMarginRate         = 0.05,
+    
+    #Body.10()
+    #Vars
+    chosenUnits              = 12,
+    chosenTIF                = "FOK",
+    chosenMarketType         = "MARKET",
+    chosenPostionFill        = "DEFAULT",
+    
+    #Body.26()
+    #Vars
+    chosenDirection          = "short",
+    chosenClosePositionunits       = "ALL",
+    #Query.6()
+    #Vars
+    chosensinceTransactionID = 243,
+    
+    #Query.7()
+    #Vars
+    chosenCount              = 100,
+    chosenPrice              = "M",
+    chosenGranularity        = "M5",
+    chosenFrom               = NA ,#"2019-04-21"
+    chosenTo                 = NA ,#"2019-04-22"
+    
+    #Query.30()
+    #Vars
+    chosenID                 = 230
+)
+
+
+for (N  in ChosenVarslist) {
+  
+  #print(N)
+  assign(as.character(N),StartedVars %>% as.tibble() %>% gather(key,value) %>% filter(key==N) %>% .$value)
+  #  print(N)
+  
+}
+
+UpdateChosenVars <- function(...){
+  Dots <- list(...)
+  
+  updatedVars <- fromJSON("candlesvars.json",flatten = T) 
+  
+  Newone <<- updatedVars %>% modify_if(., is.null, ~ NA) %>% as.tibble() %>% gather(key,value) 
+  
+  Oldone <<- StartedVars %>% as.tibble() %>% gather(key,value)
+  
+  updatedVar <<- Oldone %>% select(key) %>% 
+    full_join(.,Newone,by="key") %>% 
+    full_join(.,Oldone,by="key") %>% 
+    mutate(InputTF=Oldone$key %in% Newone$key) %>%
+    mutate(Output=ifelse(InputTF==T,value.x,value.y)) %>%
+    select(key,Output) 
+  
+}
+
+UpdateChosenVars()
+
+for (N  in ChosenVarslist) {
+  
+  #print(N)
+  assign(as.character(N), updatedVar %>% filter(key==N) %>% .$Output)
+  #  print(N)
+  
+}
+

@@ -1,0 +1,34 @@
+uuuurl<-"https://www.oanda.com/tools/fxcalculators/fxmath.js"
+GET(url = uuuurl)-> rss
+content(rss,"text") %>% as.character() ->dddd
+dddd
+toJSON(rss)
+
+js
+
+
+source("preenv.R")
+
+uuuuurl <- "https://www.oanda.com/labsds/signal/autochartist?_=1557147106"
+uuuuurl <- paste("https://www.oanda.com/labsds/signal/autochartist?_=" ,
+      Sys.time() )
+
+GET(url = uuuuurl) ->rrrrs
+rrrrs
+fromJSON(content(rrrrs,"text") )
+options(digits.secs = 2)
+Sys.time() %>% as.numeric() ->t
+
+"1557154800" 
+
+1557146397900
+1557146687
+
+1557146397621
+1557147106
+
+1557147397000
+
+1557146397765
+1557147708.
+1557147462000

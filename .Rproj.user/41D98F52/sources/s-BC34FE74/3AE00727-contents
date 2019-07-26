@@ -1,0 +1,32 @@
+#Source
+source("packages/package.R")
+
+source("preenv.r")
+
+
+
+#################
+Check.ep.status <- function(){
+  Check.EP.df = data.frame()
+  
+  for (i in 1:33) {
+    
+    Ep.status <<- Request.r(rEPScode = i,DataType = "StatusAndUrl") 
+    #print(Ep.status)
+    Check.EP.df <- bind_rows(Check.EP.df,Ep.status)
+  }
+  Check.EP.df <<- Check.EP.df
+  print(Check.EP.df)
+}
+
+Check.ep.status()
+Check.EP.df %>% count(respStatus)
+Check.EP.df %>% mutate(idx=rownames(.)) %>% filter(!respStatus %in% c(200,201)) -> unpassedlist
+
+for (i in unpassedlist$idx) {
+  
+  Request.r(rEPScode = i,DataType = "Content.df") ->a
+  print(c(i,a))
+}
+
+

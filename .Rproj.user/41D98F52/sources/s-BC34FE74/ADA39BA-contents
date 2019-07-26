@@ -1,0 +1,106 @@
+
+#|--source("requestep/endpoints/endpoints.R") 
+#
+#|---source("requestep/endpoints/Account/Account.R")
+#|---source("requestep/endpoints/Instrument/Instrument.R")
+#|---source("requestep/endpoints/Order/Order.R")
+#|---source("requestep/endpoints/Trade/Trade.R")
+#|---source("requestep/endpoints/Position/Position.R")
+#|---source("requestep/endpoints/Transaction/Transaction.R")
+#|---source("requestep/endpoints/Pricing/Pricing.R")
+
+
+source("packages/package.R")
+#source("token/TokenInfo.R")
+source("globalvars/GlobalVars.R")
+source("chosenvars/chosenvars.R")
+
+
+source("requestep/steps/steps.R")
+
+source("requestep/header/header.R")
+
+source("requestep/body/body.R")
+
+source("requestep/query/query.R")
+
+source("requestep/requestep.R")
+
+
+##source("requestep/requestep.R") 
+#
+###source("requestep/endpoints/endpoints.R") 
+#
+#
+###source("requestep/header/header.R")
+#
+###source("requestep/body/body.R")
+#
+###source("requestep/query/query.R")
+#
+###source("requestep/steps/steps.R")
+###
+###1#source("requestep/steps/step2/step2.R")
+###2#source("requestep/steps/step3/step3.R")
+###3#source("requestep/steps/step6/step6.R")
+
+
+
+  source("preenv.r")
+    -source("packages/package.R") #all needed
+      #
+    --source("token/TokenInfo.R") #
+      ##TOKEN.Practice,TOKEN.Realtrade 
+
+    --source("globalvars/GlobalVars.R")
+      ##Environment.practice,Environment.realtrade
+
+    --source("chosenvars/chosenvars.R")
+      ##
+
+    --source("endpoints/endpoints.R")
+      ###
+      #|---source("Account/Account.R")
+      #|---source("Instrument/Instrument.R")
+      #|---source("Order/Order.R")
+      #|---source("Trade/Trade.R")
+      #|---source("Position/Position.R")
+      #|---source("Transaction/Transaction.R")
+      #|---source("Pricing/Pricing.R")
+    
+    ##
+
+    
+    ##
+    --source("requestep/requestep.R") 
+   #--Request.EP()
+
+      ###
+      #|---source("header/header.R") #
+        #---Ep.Header()
+
+      #|---source("body/body.R")     #  
+        #---Ep.Body()
+
+      #|---source("query/query.R")   #
+        #---Ep.Query(7)
+
+    #
+  
+  source("check/checkep.r")
+  
+  
+  source("PriceStream/PriceStream.R")
+
+                          |<------source("packages/package.R")
+                          |
+  source("preenv.r")----->|<------
+                          |
+                          |
+                          |
+                          |
+                          |
+                          |
+                          |
+                          |
+                          |

@@ -1,0 +1,119 @@
+#new testing.R
+#
+#getwd()
+#setwd("/Users/eric/Desktop/Github/hello-world/Rsys")
+setwd("/Users/eric/Desktop/Github/ALGO/ALGO/new2")
+
+#
+source("packages/package.R")
+#source("token/TokenInfo.R")
+source("globalvars/GlobalVars.R")
+source("chosenvars/chosenvars.R")
+
+source("requestep/endpoints/endpoints.R")
+
+source("requestep/steps/steps.R")
+
+source("requestep/header/header.R")
+
+source("requestep/body/body.R")
+
+source("requestep/query/query.R")
+
+source("requestep/requestep.R")
+source("updatevarsfun.R")
+
+
+getwd()
+
+df.Endpoints
+#View(df.Endpoints)
+
+#SelectedEPScode = 7
+#SelectedDataType ="Content.df.flat"
+
+  #"Content.Raw"
+# 
+#Request.r.content(rResult = Request.EP(EPScode = SelectedEPScode, accountID=chosenaccountID),rDataType = SelectedDataType) 
+#r$url
+
+#Request.r(rEPScode = SelectedEPScode,DataType = SelectedDataType ) 
+#rData  
+
+
+#######
+
+#update.cvars(updateInstrument = "BCO_USD",
+ #            updateCount=100,
+#             updatePrice="M",
+#             updateGranularity="M15",
+             #updateFrom = "2019-05-01", #"2019-04-21"
+             #updateTo= NA    #"2019-04-22"
+#)
+
+
+#Request.r.content(rResult = Request.EP(EPScode = SelectedEPScode, accountID=chosenaccountID),rDataType = SelectedDataType) 
+#r$url
+
+#Request.r(rEPScode = SelectedEPScode,DataType = SelectedDataType ) 
+#rData  
+
+#rData -> bco
+
+#update.cvars(updateInstrument = "WTICO_USD",
+#             updateCount=100,
+#             updatePrice="M",
+#             updateGranularity="M15",
+             #updateFrom = "2019-05-01", #"2019-04-21"
+             #updateTo= NA    #"2019-04-22"
+#)
+
+
+#Request.r.content(rResult = Request.EP(EPScode = SelectedEPScode, accountID=chosenaccountID),rDataType = SelectedDataType) 
+#r$url
+
+#Request.r(rEPScode = SelectedEPScode,DataType = SelectedDataType ) 
+#rData  
+
+#rData -> wtico
+
+########
+
+
+
+
+#Request.r(rEPScode = SelectedEPScode,
+#          DataType = SelectedDataType ) -> bbbb
+
+
+
+#update.cvars(updateInstrument = "AUD_USD",
+#             updateCount=1000,
+#             updatePrice="M",
+#             updateGranularity="M5",
+             #updateFrom = "2019-05-01", #"2019-04-21"
+             #updateTo= NA    #"2019-04-22"
+#)
+
+#fromJSON("candlesvars.json") 
+
+#Header
+#Ep.Header(pToken=TOKEN.Practice)
+
+#Body
+#Ep.Body(5)
+#Ep.Body(10)
+
+#Query
+
+#Ep.Query(6)
+#Ep.Query(7)
+#Ep.Query(30)
+#Ep.Query(32)
+
+#SelectedEPScode = 4
+#SelectedDataType ="Content.df.flat"
+
+
+
+

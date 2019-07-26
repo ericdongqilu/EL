@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1564031539649.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "B9212F04",
+    "lastKnownWriteTime" : 1555332474,
+    "last_content_update" : 1555332474,
+    "path" : "~/Desktop/Github/ALGO/ALGO/new2/globalvars/GlobalVars.R",
+    "project_path" : null,
+    "properties" : {
+        "cursorPosition" : "2,0",
+        "scrollLine" : "0"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 17,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

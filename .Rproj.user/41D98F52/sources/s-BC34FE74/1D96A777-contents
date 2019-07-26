@@ -1,0 +1,54 @@
+devtools::install_github("ericdongqilu/EL",force = TRUE)
+
+library(EL)
+
+#Token for Practice
+TOKEN.Practice <- "77eef439a2943109e6634ca77f3e59da-63ead690379c4175b6d62f08f66b205e"
+
+#Token for Realtrade
+TOKEN.Realtrade <- ""
+
+
+chosenTOKEN <- TOKEN.Practice
+#practice
+Environment.practice = "https:/api-fxpractice.oanda.com"
+#realtrade
+Environment.realtrade = "https:/api-fxpractice.oanda.com"
+
+#
+chosenaccountID          = "101-011-1901365-013"
+chosenInstrument         = "EUR_JPY"
+chosenOrderSpecifier     = 481
+chosenTradeSpecifier     = 75
+chosenTransactionID      = 249
+
+#Body.5() 
+#Vars
+chosenMarginRate         = 0.05
+
+#Body.10()
+#Vars
+chosenUnits              = 12
+chosenTIF                = "FOK"
+chosenMarketType         = "MARKET"
+chosenPostionFill        = "DEFAULT"
+
+#Body.26()
+#Vars
+chosenDirection          = "short"
+chosenClosePositionunits       = "ALL"
+#Query.6()
+#Vars
+chosensinceTransactionID = 243
+
+#Query.7()
+#Vars
+chosenCount              = 100
+chosenPrice              = "M"
+chosenGranularity        = "M5"
+chosenFrom               = NA #"2019-04-21"
+chosenTo                 = NA #"2019-04-22"
+
+#Query.30()
+#Vars
+chosenID                 = 230

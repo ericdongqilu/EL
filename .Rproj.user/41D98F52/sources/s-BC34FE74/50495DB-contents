@@ -1,0 +1,60 @@
+#new testing.R
+#
+#getwd()
+#setwd("/Users/eric/Desktop/Github/hello-world/Rsys")
+setwd("/Users/eric/Desktop/Github/ALGO/ALGO/new2")
+
+#
+source("packages/package.R")
+
+update.cvars <- function( updateInstrument=chosenInstrument ,
+                          updateCount=chosenCount,
+                          updatePrice=chosenPrice,
+                          updateGranularity=chosenGranularity,
+                          updateFrom=chosenFrom , #"2019-04-21"
+                          updateTo=chosenTo     #"2019-04-22"
+){
+toJSON(list(
+  chosenInstrument = updateInstrument,
+  chosenCount=updateCount,
+  chosenPrice=updatePrice,
+  chosenGranularity=updateGranularity,
+  chosenFrom = updateFrom, #"2019-04-21"
+  chosenTo = updateTo    #"2019-04-22"
+),auto_unbox = T
+) -> vars
+
+write(vars,"candlesvars.json")
+
+source("chosenvars/chosenvars.R")
+}
+
+update.cvars(updateInstrument = "USD_JPY",
+             updateCount=1001,
+             updatePrice="M",
+             updateGranularity="M5",
+             updateFrom = NA, #"2019-04-21"
+             updateTo= NA    #"2019-04-22"
+)
+
+fromJSON("candlesvars.json") 
+
+
+#update.cvars(updateInstrument = "USD_JPY"
+#)
+#fromJSON("candlesvars.json")  
+
+#update.cvars <- function(...) {    #"2019-04-22"{
+#  Dots <- list(...)
+  
+  
+  
+  
+  
+  #write(vars,"candlesvars.json")
+  
+  #source("chosenvars/chosenvars.R")
+
+#}
+
+
