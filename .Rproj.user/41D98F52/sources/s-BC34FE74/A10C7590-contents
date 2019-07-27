@@ -1,0 +1,27 @@
+#Source
+source("packages/package.R")
+
+#Order
+Order.eps <-
+  c("/v3/accounts/accountID/orders",
+    "/v3/accounts/accountID/orders",
+    "/v3/accounts/accountID/pendingOrders",
+    "/v3/accounts/accountID/orders/orderSpecifier",
+    "/v3/accounts/accountID/orders/orderSpecifier",
+    "/v3/accounts/accountID/orders/orderSpecifier/cancel",
+    "/v3/accounts/accountID/orders/orderSpecifier/clientExtensions") 
+
+Order.eps.method <-
+  c("POST",
+    "GET",
+    "GET",
+    "GET",
+    "PUT",
+    "PUT",
+    "PUT")
+
+#
+df.Order.eps <- 
+  data.frame("Endpoints"=Order.eps,
+             "Methods"=Order.eps.method) %>% 
+  mutate(Section="Order") 

@@ -1,0 +1,20 @@
+#Source
+source("packages/package.R")
+
+#Instrument
+
+Instrument.eps <- 
+  c("/v3/instruments/INSTRUMENT/candles",
+    "/v3/instruments/INSTRUMENT/orderBook",
+    "/v3/instruments/INSTRUMENT/positionBook")
+
+Instrument.eps.method <- 
+  c("GET",
+    "GET",
+    "GET")
+
+#
+df.Instrument.eps <- 
+  data.frame("Endpoints"=Instrument.eps,
+             "Methods"=Instrument.eps.method) %>% 
+  mutate(Section="Instrument") 

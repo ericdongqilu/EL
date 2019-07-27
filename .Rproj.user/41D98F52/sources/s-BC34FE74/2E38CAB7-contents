@@ -1,0 +1,25 @@
+#Source
+source("packages/package.R")
+
+#Account
+Account.eps <- 
+  c("/v3/accounts",
+    "/v3/accounts/accountID",
+    "/v3/accounts/accountID/summary",
+    "/v3/accounts/accountID/instruments",
+    "/v3/accounts/accountID/configuration",#PATCH
+    "/v3/accounts/accountID/changes")
+
+Account.eps.method <- 
+  c("GET",
+    "GET",
+    "GET",
+    "GET",
+    "PATCH",#PATCH
+    "GET") 
+
+#
+df.Account.eps <- 
+  data.frame("Endpoints"=Account.eps,
+             "Methods"=Account.eps.method) %>% 
+  mutate(Section="Account") 

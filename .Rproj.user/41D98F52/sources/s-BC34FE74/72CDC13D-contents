@@ -1,0 +1,24 @@
+#Source
+source("packages/package.R")
+
+#Trade
+Trade.eps <-
+  c("/v3/accounts/accountID/trades",
+    "/v3/accounts/accountID/openTrades",
+    "/v3/accounts/accountID/trades/tradeSpecifier",
+    "/v3/accounts/accountID/trades/tradeSpecifier/close",
+    "/v3/accounts/accountID/trades/tradeSpecifier/clientExtensions",
+    "/v3/accounts/accountID/trades/tradeSpecifier/orders") 
+
+Trade.eps.method <-
+  c("GET",
+    "GET",
+    "GET",
+    "PUT",
+    "PUT",
+    "PUT")
+#
+df.Trade.eps <- 
+  data.frame("Endpoints"=Trade.eps,
+             "Methods"=Trade.eps.method) %>% 
+  mutate(Section="Trade") 

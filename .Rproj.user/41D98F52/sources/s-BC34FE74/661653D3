@@ -7,11 +7,13 @@
     "folds" : "",
     "hash" : "0",
     "id" : "661653D3",
-    "lastKnownWriteTime" : 1564031412,
-    "last_content_update" : 1564031412183,
+    "lastKnownWriteTime" : 1564210149,
+    "last_content_update" : 1564210149414,
     "path" : "~/Desktop/MyPackage/EL/R/f9.R",
     "project_path" : "R/f9.R",
     "properties" : {
+        "cursorPosition" : "158,0",
+        "scrollLine" : "157",
         "tempName" : "Untitled2"
     },
     "read_only" : false,

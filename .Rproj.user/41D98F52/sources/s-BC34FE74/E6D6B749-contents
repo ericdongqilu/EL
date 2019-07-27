@@ -1,0 +1,40 @@
+#Source
+source("packages/package.R")
+
+
+#Endpoints
+ Endpoints <- function(...){
+   
+   source("requestep/endpoints/Account/Account.R")
+   source("requestep/endpoints/Instrument/Instrument.R")
+   source("requestep/endpoints/Order/Order.R")
+   source("requestep/endpoints/Trade/Trade.R")
+   source("requestep/endpoints/Position/Position.R")
+   source("requestep/endpoints/Transaction/Transaction.R")
+   source("requestep/endpoints/Pricing/Pricing.R")
+   
+    df.Endpoints <<-
+      df.Account.eps %>%
+      full_join(.,df.Instrument.eps) %>%
+      full_join(.,df.Order.eps) %>%
+      full_join(.,df.Trade.eps) %>%
+      full_join(.,df.Position.eps) %>%
+      full_join(.,df.Transaction.eps) %>%
+      full_join(.,df.Pricing.eps) %>% 
+      mutate(Epscode=row.names(.)) %>%
+      as_tibble() 
+    return(df.Endpoints)
+}
+
+ #Endpoints() 
+df.Endpoints <- Endpoints() 
+#df.Endpoints
+
+ #Account.eps     = df.Account.eps,
+ #Instrument.eps  = df.Instrument.eps,
+ #Order.eps       = df.Order.eps,
+ #Trade.eps       = df.Trade.eps,
+ #Position.eps    = df.Position.eps,
+ #Transaction.eps = df.Transaction.eps,
+ #df.Pricing.eps  = df.Pricing.eps,
+ #...

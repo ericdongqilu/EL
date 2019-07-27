@@ -1,0 +1,17 @@
+#Source
+source("packages/package.R")
+
+#Pricing
+Pricing.eps <-
+  c("/v3/accounts/accountID/pricing",
+    "/v3/accounts/accountID/pricing/stream")
+
+Pricing.eps.method <-
+  c("GET",
+    "GET")
+
+#
+df.Pricing.eps <- 
+  data.frame("Endpoints"=Pricing.eps,
+             "Methods"=Pricing.eps.method) %>% 
+  mutate(Section="Pricing") 

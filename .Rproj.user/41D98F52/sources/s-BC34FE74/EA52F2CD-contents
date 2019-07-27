@@ -1,0 +1,21 @@
+#Source
+source("packages/package.R")
+
+#Position
+Position.eps <-
+  c("/v3/accounts/accountID/positions",
+    "/v3/accounts/accountID/openPositions",
+    "/v3/accounts/accountID/positions/INSTRUMENT",
+    "/v3/accounts/accountID/positions/INSTRUMENT/close") 
+
+Position.eps.method <-
+  c("GET",
+    "GET",
+    "GET",
+    "PUT")
+
+#
+df.Position.eps <- 
+  data.frame("Endpoints"=Position.eps,
+             "Methods"=Position.eps.method) %>% 
+  mutate(Section="Position") 

@@ -1,0 +1,24 @@
+#Source
+source("packages/package.R")
+
+#Transaction
+Transaction.eps <-
+  c("/v3/accounts/accountID/transactions",
+    "/v3/accounts/accountID/transactions/transactionID",
+    "/v3/accounts/accountID/transactions/idrange",
+    "/v3/accounts/accountID/transactions/sinceid",
+    "/v3/accounts/accountID/transactions/stream"
+  )
+
+Transaction.eps.method <-
+  c("GET",
+    "GET",
+    "GET",
+    "GET",
+    "GET")
+
+#
+df.Transaction.eps <- 
+  data.frame("Endpoints"=Transaction.eps,
+             "Methods"=Transaction.eps.method) %>% 
+  mutate(Section="Transaction") 
