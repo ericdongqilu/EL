@@ -3,6 +3,7 @@
 export(Body.10)
 export(Body.26)
 export(Body.5)
+export(Endpoints)
 export(Ep.Body)
 export(Ep.Header)
 export(Ep.Query)

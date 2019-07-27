@@ -86,3 +86,4 @@ Request.Step6.GET(rUrl= "https://www1.oanda.com/tools/fxcalculators/fxmath.js")
 
 
 Request.EP()
+Endpoints()
