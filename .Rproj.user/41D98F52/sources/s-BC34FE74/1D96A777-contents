@@ -20,7 +20,7 @@ chosenaccountID          = "101-011-1901365-013"
 chosenInstrument         = "EUR_JPY"
 chosenOrderSpecifier     = 481
 chosenTradeSpecifier     = 75
-chosenTransactionID      = 249
+chosenTransactionID      = 830
 
 #Body.5() 
 #Vars
@@ -39,7 +39,7 @@ chosenDirection          = "short"
 chosenClosePositionunits       = "ALL"
 #Query.6()
 #Vars
-chosensinceTransactionID = 243
+chosensinceTransactionID = 838
 
 #Query.7()
 #Vars
@@ -52,3 +52,17 @@ chosenTo                 = NA #"2019-04-22"
 #Query.30()
 #Vars
 chosenID                 = 230
+
+
+ 
+Request.EP(EPScode=6,accountID=chosenaccountID)
+
+r %>% 
+  content() %>% 
+  toJSON(auto_unbox = T,pretty = T) %>% 
+  fromJSON()
+
+Request.r()
+
+
+# arrange(desc(SELL.I.O %>% as.numeric())) %>%

@@ -84,6 +84,3 @@ Request.Step3.else(Epscode=4)
 Request.Step6.GET(rUrl= "https://www1.oanda.com/tools/fxcalculators/fxmath.js")
 
 
-
-Request.EP()
-Endpoints()
