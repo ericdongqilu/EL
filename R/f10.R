@@ -49,5 +49,9 @@ SET.QUERY <- function(...){
   chosenID                 <<- Dots$SetchosenID %>% ifelse(is.null(.),NA,.)
   #  print(EpQuery)
 
+  chosenInstrument         <<- Dots$SetchosenInstrument %>% ifelse(is.null(.),NA,.)
+
 }
+
+
 

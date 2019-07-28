@@ -18,7 +18,7 @@ SET.QUERY(SetchosenCount = 500,
 SET.QUERY(SetchosenID = 500)
          # SetchosenFrom  = NA,#"2019-04-21"
           #SetchosenTo   = NA)
-Ep.Query(7)
+Ep.Query(32)
 
 
 
