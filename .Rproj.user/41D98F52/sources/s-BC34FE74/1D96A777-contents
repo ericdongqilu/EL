@@ -3,7 +3,27 @@ devtools::install_github("ericdongqilu/EL",force = TRUE)
 library(EL)
 
 
+#f2
+
+SET.TOKEN(SetToken="77eef439a2943109e6634ca77f3e59da-63ead690379c4175b6d62f08f66b205e")
+
 Ep.Header()
+
+
+#f3
+SET.QUERY(SetchosenCount = 500,
+          SetchosenPrice = "M",
+          SetchosenGranularity = "M5")
+
+SET.QUERY(SetchosenID = 500)
+         # SetchosenFrom  = NA,#"2019-04-21"
+          #SetchosenTo   = NA)
+Ep.Query(7)
+
+
+
+
+
 
 #Token for Practice
 TOKEN.Practice <- "77eef439a2943109e6634ca77f3e59da-63ead690379c4175b6d62f08f66b205e"

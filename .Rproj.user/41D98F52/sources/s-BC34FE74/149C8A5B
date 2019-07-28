@@ -5,21 +5,21 @@
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "0",
+    "hash" : "70107820",
     "id" : "149C8A5B",
     "lastKnownWriteTime" : 1563789656,
     "last_content_update" : 1563789656,
     "path" : "~/Desktop/MyPackage/EL/R/f2.R",
     "project_path" : "R/f2.R",
     "properties" : {
-        "cursorPosition" : "28,0",
+        "cursorPosition" : "18,0",
         "scrollLine" : "12",
         "tempName" : "Untitled1"
     },
     "read_only" : false,
     "read_only_alternatives" : [
     ],
-    "relative_order" : 3,
+    "relative_order" : 5,
     "source_on_save" : false,
     "source_window" : "",
     "type" : "r_source"
