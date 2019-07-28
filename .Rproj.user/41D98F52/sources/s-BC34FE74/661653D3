@@ -5,21 +5,21 @@
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "0",
+    "hash" : "1088039666",
     "id" : "661653D3",
     "lastKnownWriteTime" : 1564210149,
     "last_content_update" : 1564210149414,
     "path" : "~/Desktop/MyPackage/EL/R/f9.R",
     "project_path" : "R/f9.R",
     "properties" : {
-        "cursorPosition" : "168,36",
-        "scrollLine" : "157",
+        "cursorPosition" : "9,2",
+        "scrollLine" : "59",
         "tempName" : "Untitled2"
     },
     "read_only" : false,
     "read_only_alternatives" : [
     ],
-    "relative_order" : 14,
+    "relative_order" : 9,
     "source_on_save" : false,
     "source_window" : "",
     "type" : "r_source"

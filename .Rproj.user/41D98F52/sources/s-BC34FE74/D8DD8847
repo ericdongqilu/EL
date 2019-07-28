@@ -12,14 +12,14 @@
     "path" : "~/Desktop/MyPackage/EL/R/f6.R",
     "project_path" : "R/f6.R",
     "properties" : {
-        "cursorPosition" : "6,12",
-        "scrollLine" : "1",
+        "cursorPosition" : "129,0",
+        "scrollLine" : "110",
         "tempName" : "Untitled2"
     },
     "read_only" : false,
     "read_only_alternatives" : [
     ],
-    "relative_order" : 12,
+    "relative_order" : 5,
     "source_on_save" : false,
     "source_window" : "",
     "type" : "r_source"

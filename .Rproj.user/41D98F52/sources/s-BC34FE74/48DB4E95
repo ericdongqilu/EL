@@ -5,20 +5,20 @@
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "0",
+    "hash" : "3475040379",
     "id" : "48DB4E95",
-    "lastKnownWriteTime" : 1564232153,
-    "last_content_update" : 1564232153953,
+    "lastKnownWriteTime" : 1564296443,
+    "last_content_update" : 1564296443191,
     "path" : "~/Desktop/MyPackage/EL/R/f1.R",
     "project_path" : "R/f1.R",
     "properties" : {
-        "cursorPosition" : "118,35",
-        "scrollLine" : "107"
+        "cursorPosition" : "93,15",
+        "scrollLine" : "89"
     },
     "read_only" : false,
     "read_only_alternatives" : [
     ],
-    "relative_order" : 11,
+    "relative_order" : 7,
     "source_on_save" : false,
     "source_window" : "",
     "type" : "r_source"

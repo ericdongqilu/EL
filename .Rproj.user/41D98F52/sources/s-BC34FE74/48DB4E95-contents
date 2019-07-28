@@ -1,11 +1,11 @@
-#' A Cat Function
+#' fxmath.df Function
 #'
-#' This function allows you to express your love of cats.
-#' @param Url Do you love cats? Defaults to TRUE.
-#' @keywords cats
+#' This function will GET a url and cleaned up fxmath.js into fxmath.df1 and fxmath.df2
+#' @param Url fxmath.js url
+#' @keywords fxmath.df
 #' @export
 #' @examples
-#' f1()
+#' fxmath.df()
 #'
 #' @import httr
 #' @import tidyverse
@@ -13,12 +13,6 @@
 #' @import jsonlite
 #' @import ggplot2
 #' @import stringr
-
-
-#f1 <- function(bbbb="3333"){
-#  bbbb %>% as.numeric()-> out
-#  return(out)
-#}
 
 
 
@@ -96,9 +90,20 @@ fxmath.df <- function( Url = "https://www1.oanda.com/tools/fxcalculators/fxmath.
 
 }
 
+
+#' GetTradeName Function
+#'
+#' This function allows you to express your love of cats.
+#' @param ...  Do you love cats? Defaults to TRUE.
+#' @keywords cats
+#' @export
+#' @examples
+#'
+#'
+#'
 #Step 2. Refering to endpoint 4 to get rData.
 
-GetTradeName <- function() {
+GetTradeName <- function(...) {
 
   SelectedEPScode = 4
   SelectedDataType ="Content.df.flat"
@@ -114,6 +119,16 @@ GetTradeName <- function() {
 
 }
 
+#' A Cat Function
+#'
+#' This function allows you to express your love of cats.
+#' @param primarycurrency,hoursheld,marginavailable  Do you love cats? Defaults to TRUE.
+#' @keywords cats
+#' @export
+#' @examples
+#'
+#'
+#'
 
 fincal <- function( primarycurrency = "AUD",
                     hoursheld = 24,

@@ -2,18 +2,18 @@
 % Please edit documentation in R/f1.R
 \name{fxmath.df}
 \alias{fxmath.df}
-\title{A Cat Function}
+\title{fxmath.df Function}
 \usage{
 fxmath.df(Url = "https://www1.oanda.com/tools/fxcalculators/fxmath.js")
 }
 \arguments{
-\item{Url}{Do you love cats? Defaults to TRUE.}
+\item{Url}{fxmath.js url}
 }
 \description{
-This function allows you to express your love of cats.
+This function will GET a url and cleaned up fxmath.js into fxmath.df1 and fxmath.df2
 }
 \examples{
-f1()
+fxmath.df()
 
 }
-\keyword{cats}
+\keyword{fxmath.df}

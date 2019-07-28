@@ -1,0 +1,26 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1564296703319.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "A890872F",
+    "lastKnownWriteTime" : 1564296926,
+    "last_content_update" : 1564296926122,
+    "path" : "~/Desktop/MyPackage/EL/R/f10.R",
+    "project_path" : "R/f10.R",
+    "properties" : {
+        "cursorPosition" : "3,13",
+        "scrollLine" : "2",
+        "tempName" : "Untitled3"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 14,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

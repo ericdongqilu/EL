@@ -2,6 +2,9 @@ devtools::install_github("ericdongqilu/EL",force = TRUE)
 
 library(EL)
 
+
+Ep.Header()
+
 #Token for Practice
 TOKEN.Practice <- "77eef439a2943109e6634ca77f3e59da-63ead690379c4175b6d62f08f66b205e"
 
@@ -63,6 +66,13 @@ r %>%
   fromJSON()
 
 Request.r()
+
+
+#
+Endpoints()
+fxmath.df()
+GetTradeName()
+fincal()
 
 
 # arrange(desc(SELL.I.O %>% as.numeric())) %>%
