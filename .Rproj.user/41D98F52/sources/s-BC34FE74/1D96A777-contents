@@ -7,21 +7,74 @@ library(EL)
 
 SET.TOKEN(SetToken="77eef439a2943109e6634ca77f3e59da-63ead690379c4175b6d62f08f66b205e")
 
+
+SET.EPSCODE(SetChosenEpscode = 2)
+
+SET.ENVIRONMENT(SetchosenEnvironment = Environment.practice)
+Request.EP(EPScode=ChosenEpscode,
+           accountID=chosenaccountID)
+
+SET.STEP2(SetchosenaccountID="aaa",
+          SetchosenInstrument ="bbb",
+          SetchosenOrderSpecifier = "ccc",
+          SetchosenTradeSpecifier = "ddd",
+          SetchosenTransactionID = "eee"
+)
+
 Ep.Header()
 
-
 #f3
+Ep.Query(4)
+
+#6
+SET.QUERY(SetchosensinceTransactionID= 666)
+Ep.Query(6)
+
+#7
 SET.QUERY(SetchosenCount = 500,
           SetchosenPrice = "M",
-          SetchosenGranularity = "M5")
+          SetchosenGranularity = "M5",
+          SetchosenFrom = NA,
+          SetchosenTo = NA )
 
+Ep.Query(7)
+
+#30
 SET.QUERY(SetchosenID = 500)
-         # SetchosenFrom  = NA,#"2019-04-21"
-          #SetchosenTo   = NA)
+Ep.Query(30)
+
+#32
+SET.QUERY(SetchosenInstrument= "888")
+
 Ep.Query(32)
 
 
+#Body
 
+
+SET.BODY(5,
+         chosenMarginRate=0.05
+)
+
+Ep.Body(5)
+
+SET.BODY(10,
+         SetchosenInstrument   = "EUR_JPY",
+         SetchosenUnits        = 12 ,
+         SetchosenTIF          = "FOK",
+         SetchosenMarketType   = "MARKET"   ,
+         SetchosenPostionFill  =  "DEFAULT"
+)
+
+Ep.Body(10)
+
+
+SET.BODY(26,
+         SetchosenDirection = "short",
+         SetchosenClosePositionunits = "ALL" 
+)
+
+Ep.Body(26)
 
 
 
@@ -80,6 +133,8 @@ chosenID                 = 230
  
 Request.EP(EPScode=6,accountID=chosenaccountID)
 
+Request.EP(EPScode=ChosenEpscode,
+           accountID=chosenaccountID)
 r %>% 
   content() %>% 
   toJSON(auto_unbox = T,pretty = T) %>% 

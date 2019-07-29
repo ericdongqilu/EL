@@ -17,7 +17,7 @@ Request.Step3.6<-function(...) {
   ChosenEpscode <- Dots$Epscode
 
   #
-  Url <- paste0(Environment.practice,
+  Url <- paste0(chosenEnvironment,
                 Ep.info.ep.ready,
                 Ep.Query(CEPScode = ChosenEpscode))
   Url
@@ -42,7 +42,7 @@ Request.Step3.7<-function(...) {
   ChosenEpscode <- Dots$Epscode
 
   #
-  Url <- paste0(Environment.practice,
+  Url <- paste0(chosenEnvironment,
                 Ep.info.ep.ready,
                 Ep.Query(CEPScode=ChosenEpscode))
 
@@ -69,7 +69,7 @@ Request.Step3.30 <-function(...) {
   ChosenEpscode <- Dots$Epscode
 
   #
-  Url <- paste0(Environment.practice,Ep.info.ep.ready,
+  Url <- paste0(chosenEnvironment,Ep.info.ep.ready,
                 Ep.Query(CEPScode=ChosenEpscode))
 
   Url
@@ -96,7 +96,7 @@ Request.Step3.32 <-function(...) {
   ChosenEpscode <- Dots$Epscode
 
   #
-  Url <- paste0(Environment.practice,Ep.info.ep.ready,
+  Url <- paste0(chosenEnvironment,Ep.info.ep.ready,
                 Ep.Query(CEPScode=ChosenEpscode))
   Url
 }
@@ -121,7 +121,7 @@ Request.Step3.else <-function(...) {
   ChosenEpscode <- Dots$Epscode
 
   #
-  Url = paste0(Environment.practice,Ep.info.ep.ready)
+  Url = paste0(chosenEnvironment,Ep.info.ep.ready)
 
   print(c(ChosenEpscode,Url))
 
