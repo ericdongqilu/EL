@@ -54,7 +54,16 @@ SET.QUERY <- function(...){
 }
 
 
-
+#' A Cat Function
+#'
+#' This function allows you to express your love of cats.
+#' @param ... Do you love cats? Defaults to TRUE.
+#' @keywords cats
+#' @export
+#' @examples
+#'
+#'
+#'
 
 SET.BODY <- function(...){
   Dots <- list(...)
@@ -76,6 +85,16 @@ SET.BODY <- function(...){
 
 }
 
+#' A Cat Function
+#'
+#' This function allows you to express your love of cats.
+#' @param ... Do you love cats? Defaults to TRUE.
+#' @keywords cats
+#' @export
+#' @examples
+#'
+#'
+#'
 
 SET.STEP2 <- function(...){
   Dots <- list(...)
@@ -108,7 +127,16 @@ SET.STEP2 <- function(...){
 
 }
 
-
+#' A Cat Function
+#'
+#' This function allows you to express your love of cats.
+#' @param ... Do you love cats? Defaults to TRUE.
+#' @keywords cats
+#' @export
+#' @examples
+#'
+#'
+#'
 
 SET.EPSCODE <- function(...){
   Dots <- list(...)
@@ -120,6 +148,16 @@ SET.EPSCODE <- function(...){
 
 }
 
+#' A Cat Function
+#'
+#' This function allows you to express your love of cats.
+#' @param ... Do you love cats? Defaults to TRUE.
+#' @keywords cats
+#' @export
+#' @examples
+#'
+#'
+#'
 
 SET.ENVIRONMENT <- function(...){
   Dots <- list(...)
